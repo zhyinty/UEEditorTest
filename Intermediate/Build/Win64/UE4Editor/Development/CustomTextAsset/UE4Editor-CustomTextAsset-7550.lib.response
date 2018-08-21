@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-CustomTextAsset-7550.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"H:\UnrealEngine_SourceBuild\UnrealEngine\Engine\Intermediate\Build\Win64\UE4Editor\Development\UnrealEd\SharedPCH.UnrealEd.h.obj"
+"G:\ThirdPerson\Plugins\UEEditorTest\Intermediate\Build\Win64\UE4Editor\Development\CustomTextAsset\Module.CustomTextAsset.cpp.obj"
+"G:\ThirdPerson\Plugins\UEEditorTest\Intermediate\Build\Win64\UE4Editor\Development\CustomTextAsset\Module.CustomTextAsset.gen.cpp.obj"
+"H:\UnrealEngine_SourceBuild\UnrealEngine\Engine\Intermediate\Build\Win64\UE4Editor\Development\PCLaunch.rc.res"
+/OUT:"G:\ThirdPerson\Plugins\UEEditorTest\Intermediate\Build\Win64\UE4Editor\Development\CustomTextAsset\UE4Editor-CustomTextAsset-7550.lib"

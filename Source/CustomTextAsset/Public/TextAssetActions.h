@@ -23,4 +23,7 @@ public:
 
 	virtual uint32 GetCategories() override;
 
+
+	virtual void OpenAssetEditor(const TArray<UObject *>& InObjects, TSharedPtr<IToolkitHost> EditWithinLevelEditor = TSharedPtr<IToolkitHost>()) override;
+
 };

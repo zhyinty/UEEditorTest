@@ -2,6 +2,7 @@
 
 #include "TextAssetActions.h"
 #include "TextAsset.h"
+#include "TextAssetEditor.h"
 
 #define LOCTEXT_NAMESPACE "TextAssetActions"
 
@@ -23,6 +24,12 @@ FText FTextAssetActions::GetName() const
 uint32 FTextAssetActions::GetCategories()
 {
 	return EAssetTypeCategories::Misc;
+}
+
+void FTextAssetActions::OpenAssetEditor(const TArray<UObject *>& InObjects, TSharedPtr<IToolkitHost> EditWithinLevelEditor /*= TSharedPtr<IToolkitHost>()*/)
+{
+	TSharedPtr<FTextAssetEditor> EditorPtr = MakeShareable<FTextAssetEditor>(new FTextAssetEditor());
+	EditorPtr->InitTextAssetEditor(Cast<UTextAsset>(InObjects[0]), EditWithinLevelEditor);
 }
 
 #undef LOCTEXT_NAMESPACE
