@@ -2,6 +2,9 @@
 
 #include "TextAssetEditor.h"
 #include "TextAsset.h"
+#include "Kismet2/BlueprintEditorUtils.h"
+#include "TextAssetGraph.h"
+#include "TextAssetGraphSchema.h"
 
 #define LOCTEXT_NAMESPACE "TextAssetEditor"
 
@@ -15,6 +18,7 @@ FTextAssetEditor::~FTextAssetEditor()
 
 void FTextAssetEditor::InitTextAssetEditor(UTextAsset* TextAsset, TSharedPtr<IToolkitHost> Host)
 {
+	TheTextAsset = TextAsset;
 	const TSharedRef<FTabManager::FLayout> StandaloneDefaultLayout = FTabManager::NewLayout("Standalone.TextAsset_Layout_v4")
 		->AddArea
 		(
@@ -45,7 +49,7 @@ void FTextAssetEditor::InitTextAssetEditor(UTextAsset* TextAsset, TSharedPtr<ITo
 
 void FTextAssetEditor::AddReferencedObjects(FReferenceCollector& Collector)
 {
-	
+	Collector.AddReferencedObject(TheTextAsset);
 }
 
 FName FTextAssetEditor::GetToolkitFName() const
@@ -86,12 +90,14 @@ void FTextAssetEditor::UnregisterTabSpawners(const TSharedRef<FTabManager>& TabM
 
 TSharedRef<SDockTab> FTextAssetEditor::SpawnTab_Viewport(const FSpawnTabArgs& Args)
 {
+	UEdGraph* Graph = FBlueprintEditorUtils::CreateNewGraph(TheTextAsset, NAME_None, UTextAssetGraph::StaticClass(), UTextAssetGraphSchema::StaticClass());
 	TSharedRef<SDockTab> SpawnTab = SNew(SDockTab)
 		.Label(LOCTEXT("SpanDockName", "Test"))
 		[
-			SNew(SButton)
+			SNew(SGraphEditor)
+			.GraphToEdit(Graph)
 		];
 	return SpawnTab;
 }
 
-#undef LOCTEXT_NAMESPACVE
+#undef LOCTEXT_NAMESPACE

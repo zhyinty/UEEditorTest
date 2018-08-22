@@ -43,4 +43,8 @@ public:
 	virtual void UnregisterTabSpawners(const TSharedRef<FTabManager>& TabManager) override;
 
 	TSharedRef<SDockTab> SpawnTab_Viewport(const FSpawnTabArgs& Args);
+
+protected:
+
+	UTextAsset* TheTextAsset;
 };

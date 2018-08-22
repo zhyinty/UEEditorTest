@@ -12,6 +12,7 @@ public class CustomTextAsset : ModuleRules
 			new string[] {
 				"CustomTextAsset/Public",
                 "AssetTools",
+                "UnrealEd"
 				// ... add public include paths required here ...
 			}
 			);
