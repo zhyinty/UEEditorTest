@@ -16,5 +16,7 @@ class CUSTOMTEXTASSET_API UTextAssetGraphSchema : public UEdGraphSchema
 	
 	
 	
-	
+public:
+	virtual void GetGraphContextActions(FGraphContextMenuBuilder& ContextMenuBuilder) const override;
+
 };
